@@ -53,6 +53,11 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras \
     nfc_nci.pn54x.default
+    
+ifeq ($(ENABLE_TREBLE), true) 
+PRODUCT_PACKAGES += \ 
+    vendor.nxp.nxpnfc@1.0-service 
+endif
 
 # Permissions
 PRODUCT_COPY_FILES += \
