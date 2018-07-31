@@ -68,3 +68,8 @@
 
 # VNDK
 /system/bin/vndk-detect    u:object_r:vndk_detect_exec:s0
+
+#NFC
+/system/bin/hw/vendor\.nxp\.nxpnfc@1\.0-service               u:object_r:hal_nfc_default_exec:s0
+/data/nfc(/.*)?        u:object_r:nfc_data_file:s0
+/data/vendor/nfc(/.*)? u:object_r:nfc_vendor_data_file:s0
