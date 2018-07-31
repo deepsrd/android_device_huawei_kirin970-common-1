@@ -1,0 +1,4 @@
+#============= nfc ==============
+
+allow nfc nfc_data_file:dir { search read write create remove_name};
+allow nfc default_android_hwservice:hwservice_manager find;
