@@ -64,16 +64,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.version.all_codenames=$(PLATFORM_VERSION_ALL_CODENAMES) \
     ro.build.version.codename=$(PLATFORM_VERSION_CODENAME) \
     ro.build.version.huawei=8.0.0 \
+    ro.build.version.huawei1=8.1.0 \
     ro.build.version.release=$(PLATFORM_VERSION) \
     ro.build.version.sdk=$(PLATFORM_SDK_VERSION) \
     ro.cust.cdrom=/dev/null
-
-# Radio
-PRODUCT_PACKAGES += \
-    qti-telephony-common
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -87,6 +81,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
+# Selinux
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sepolicy/27.0.cil:$(TARGET_COPY_OUT_SYSTEM)/etc/selinux/mapping/27.0.cil
+
 # Shims
 PRODUCT_PACKAGES += \
     libshims_hisupl \
@@ -94,6 +92,7 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vndk-compat/vndk-detect:system/bin/vndk-detect \
-    $(LOCAL_PATH)/vndk-compat/ld.config.compat.txt:system/etc/ld.config.compat.txt \
-    $(LOCAL_PATH)/vndk-compat/vndk-compat.rc:system/etc/init/vndk-compat.rc
+    $(LOCAL_PATH)/vndk-compat/ld.config.26.txt:system/etc/ld.config.26.txt \
+    $(LOCAL_PATH)/vndk-compat/llndk.libraries.26.txt:system/etc/llndk.libraries.26.txt \
+    $(LOCAL_PATH)/vndk-compat/vndksp.libraries.26.txt:system/etc/vndksp.libraries.26.txt \
+    $(LOCAL_PATH)/vndk-compat/ld.config.27.txt:system/etc/ld.config.27.txt
